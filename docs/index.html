@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Zurück zu Pfotenplan</title>
+<style>
+  body { font-family: system-ui, sans-serif; background: #34302D; color: #F5EFE6; margin: 0; padding: 32px 16px; text-align: center; }
+  a.btn { display: inline-block; margin-top: 24px; padding: 14px 24px; border-radius: 12px; background: #E8A85C; color: #34302D; text-decoration: none; font-weight: 600; }
+  p { color: #BDB2A6; }
+</style>
+</head>
+<body>
+  <h1>Zurück zu Pfotenplan</h1>
+  <p id="msg">Du wirst gleich weitergeleitet.</p>
+  <a id="open" class="btn" href="pfotenplan://enablebanking">Pfotenplan öffnen</a>
+<script>
+  // Hands the answer of the bank (code, state or error) to the app. Nothing is stored or sent anywhere else.
+  var target = "pfotenplan://enablebanking" + window.location.search;
+  document.getElementById("open").setAttribute("href", target);
+  window.location.replace(target);
+  setTimeout(function () {
+    document.getElementById("msg").textContent = "Falls Pfotenplan sich nicht öffnet, tippe auf den Knopf.";
+  }, 1500);
+</script>
+</body>
+</html>
